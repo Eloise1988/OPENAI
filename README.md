@@ -1,4 +1,5 @@
 # Telegram Chatbot using OpenAI
+![AskGpt](https://github.com/Eloise1988/OPENAI/blob/main/PNG/askgpt.jpeg)
 This is a python script for a Telegram chatbot that uses the OpenAI API to generate responses to user input.
 
 ## Requirements
