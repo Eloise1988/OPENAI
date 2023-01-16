@@ -13,7 +13,7 @@ BOT_TOKEN = 'xxxxxxbotapikeyxxxxx'
 # Defining the bot's personality using adjectives
 BOT_PERSONALITY = 'Answer in a funny tone, '
 
-# 2. Function that gets the response from OpenAI's chatbot
+# 2a. Function that gets the response from OpenAI's chatbot
 def openAI(prompt):
     # Make the request to the OpenAI API
     response = requests.post(
@@ -25,8 +25,20 @@ def openAI(prompt):
     result = response.json()
     final_result = ''.join(choice['text'] for choice in result['choices'])
     return final_result
+
+# 2b. Function that gets an Image from OpenAI
+def openAImage(prompt):
+    # Make the request to the OpenAI API
+    resp = requests.post(
+        'https://api.openai.com/v1/images/generations',
+        headers={'Authorization': f'Bearer {API_KEY}'},
+        json={'prompt': prompt,'n' : 1, 'size': '1024x1024'}
+    )
+    response_text = json.loads(resp.text)
+      
+    return response_text['data'][0]['url']
   
-# 3. Function that sends a message to a specific telegram group
+# 3a. Function that sends a message to a specific telegram group
 def telegram_bot_sendtext(bot_message,chat_id,msg_id):
     data = {
         'chat_id': chat_id,
@@ -37,6 +49,18 @@ def telegram_bot_sendtext(bot_message,chat_id,msg_id):
         'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage',
         json=data
     )
+    return response.json()
+
+# 3b. Function that sends an image to a specific telegram group
+def telegram_bot_sendimage(image_url, group_id, msg_id):
+    data = {
+        'chat_id': group_id, 
+        'photo': image_url,
+        'reply_to_message_id': msg_id
+    }
+    url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendPhoto'
+    
+    response = requests.post(url, data=data)
     return response.json()
   
 # 4. Function that retrieves the latest requests from users in a Telegram group, 
@@ -72,7 +96,12 @@ def Chatbot():
                     
                     # Retrieving the chat ID 
                     chat_id = str(result['message']['chat']['id'])
-                  
+                    
+                    # Checking if user wants an image
+                    if '/img' in result['message']['text']:
+                        prompt = result['message']['text'].replace("/img", "")
+                        bot_response = openAImage(prompt)
+                        print(telegram_bot_sendimage(bot_response, chat_id, msg_id))
                     # Checking that user mentionned chatbot's username in message
                     if '@ask_chatgptbot' in result['message']['text']:
                         prompt = result['message']['text'].replace("@ask_chatgptbot", "")
