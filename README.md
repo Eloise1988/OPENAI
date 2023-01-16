@@ -32,9 +32,9 @@ The script also uses a few global variables such as the API key for OpenAI, the 
 This script is provided as a starting point, and can be further customized and expanded upon as needed.
 How to use Ask_ChatGPTbot:
 
-1 - Type "@ask_chatgptbot ___" to interact with the bot and ask a question
-2 - Type "/img ___" to get an AI generated image related to your question or statement
-3 - Type "/setTone(serious) @ask_chatgptbot ___" in order to specify the tone for the bot's response
+1. Type "@ask_chatgptbot ___" to interact with the bot and ask a question
+2. Type "/img ___" to get an AI generated image related to your question or statement
+3. Type "/setTone(serious) @ask_chatgptbot ___" in order to specify the tone for the bot's response
 
 
 ## License
