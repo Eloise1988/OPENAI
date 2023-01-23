@@ -22,11 +22,11 @@ This is a python script for a Telegram chatbot that uses the OpenAI API to gener
 ## Functionality
 
 1. This bot limits access to only a group of initially specified groups in variable `ALLOWED_GROUP_ID`
-2. The bot has a list of pre-defined tones (e.g. friendly, professional, humorous) stored in the `tone_list` variable that it can respond in.
-3. The function checks for new messages in a Telegram group by sending a GET request to the Telegram API and parsing the response data using the `requests` and `json` modules.
-4. The bot sends greeting messages to new participants
-5. The bot can also respond to commands such as '/img' for generating image captions and the bot's username for answering questions.
-6. The function also has an option to include the user's historical message to the context of the chatbot response using the `write_history` variable.
+2. This bot has a list of pre-defined tones (e.g. friendly, professional, humorous) stored in the `tone_list` variable that it can respond in.
+3. This function checks for new messages in a Telegram group by sending a GET request to the Telegram API and parsing the response data using the `requests` and `json` modules.
+4. This bot sends greeting messages to new participants
+5. This bot can also respond to commands such as '/img' for generating image captions and the bot's username for answering questions.
+6. This bot also has an option to include the user's historical message to the context of the chatbot response using the `write_history` variable.
 
 ## Variables
 
