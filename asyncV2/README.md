@@ -21,17 +21,12 @@ This is a python script for a Telegram chatbot that uses the OpenAI API to gener
 
 ## Functionality
 
-1. Retrieves the last ID message from a text file for ChatGPT updates, and defines the filepath and name using the `filename` variable.
+1. This bot limits access to only a group of initially specified groups in variable `ALLOWED_GROUP_ID`
 2. The bot has a list of pre-defined tones (e.g. friendly, professional, humorous) stored in the `tone_list` variable that it can respond in.
 3. The function checks for new messages in a Telegram group by sending a GET request to the Telegram API and parsing the response data using the `requests` and `json` modules.
-4. If there is a new message that did not come from the ChatGPT bot, it retrieves the chat ID of the sender and sends back a response to the Telegram group.
+4. The bot sends greeting messages to new participants
 5. The bot can also respond to commands such as '/img' for generating image captions and the bot's username for answering questions.
 6. The function also has an option to include the user's historical message to the context of the chatbot response using the `write_history` variable.
-7. The `bot_personality` variable is used to store the personality of the bot.
-8.  `openAI` and `openAImage` are used to call the OpenAI API to generate the text response or image caption.
-9. `telegram_bot_sendtext` and `telegram_bot_sendimage` are used to send the response or image caption to the user through Telegram API.
-10. `checkTone` is used to check the tone of the question and set the bot_personality accordingly.
-11. `memory.get_channel_messages` is used to get the historical message of the user.
 
 ## Variables
 
