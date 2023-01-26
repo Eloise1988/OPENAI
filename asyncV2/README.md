@@ -1,4 +1,4 @@
-# Telegram Chatbot using OpenAI
+# Telegram Chatbot with Memory using OpenAI
 ![AskGpt](https://github.com/Eloise1988/OPENAI/blob/main/PNG/askgpt.jpeg)
 This is an asyncronous function that serves as a Telegram bot using OpenAI's GPT-3 language model.
 This is a python script for a Telegram chatbot that uses the OpenAI API to generate responses to user input.
