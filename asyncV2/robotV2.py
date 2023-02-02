@@ -85,6 +85,7 @@ async def checkTone(user_message):
 
 async def ChatGPTbot():
     # Retrieve last ID message from text file for ChatGPT update, define filepath and name
+    # Create an empty text file named chatgpt.txt, write 1 on the first line of the text file and save it, write the full path of your file below 
     filename = '/xxxxxx/xxxxxxx/xxxxx/chatgpt.txt'
     bot_personality = ''
     write_history= ''
