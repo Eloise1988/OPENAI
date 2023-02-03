@@ -37,6 +37,19 @@ How to use Ask_ChatGPTbot:
 3. Type "/setTone(serious) @ask_chatgptbot ___" in order to specify the tone for the bot's response
 
 
+## Version 1 Debug:
+1. Continuous printing of "file exists" is NORMAL. I will change the code so it doesn't write it anymore as it seems to be confusing.
+2. Ensure that `chatbot.txt` exists and has the correct path. If the file is empty, write `1` on the first line.
+3. Verify that your BOT has ADMIN access to your group.
+4. Ensure in the code that you have replaced `ask_chatgptbot` with your BOT NAME.
+5. Check `https://api.telegram.org/bot{ACCESS TOKEN}/getUpdates` to make sure you can see all messages sent to your bot and that there are no 404 errors. If you encounter errors, check with Telegram or recreate a new bot.
+
+## Version 2 Debug:
+1. Error: "Could not convert string to float: ''" Ensure that `chatbot.txt` exists and has the correct path. If the file is empty, clear it and write `1` on the first line.
+2. Ensure in the code that you have replaced `ask_chatgptbot` with your BOT NAME.
+3. Check `https://api.telegram.org/bot{ACCESS TOKEN}/getUpdates` to make sure you can see all messages sent to your bot and that there are no 404 errors. If you encounter errors, check with Telegram or recreate a new bot.
+4. Make sure you have set the correct `ALLOWED_GROUP_ID=['-100xxxxxxxx', '-1001xxxxxxxx1']`. You can check the group ID in `data['result']` or directly on `https://api.telegram.org/bot{ACCESS TOKEN}/getUpdates`.
+
 ## License
 This project is licensed under the MIT License.
 
