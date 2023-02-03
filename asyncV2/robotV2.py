@@ -101,6 +101,7 @@ async def ChatGPTbot():
     url = f'https://api.telegram.org/bot{BOT_TOKEN}/getUpdates?offset={last_update}'
     response = requests.get(url)
     data = json.loads(response.content)
+    print(data)
     
     result=data['result'][len(data['result'])-1]
     
