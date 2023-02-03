@@ -73,7 +73,7 @@ def Chatbot():
         with open(filename, "w") as f:
             f.write("1")
     else:
-        print("File Exists")    
+        does_file_exist="File Exists"    
 
     with open(filename) as f:
         last_update = f.read()
@@ -82,7 +82,8 @@ def Chatbot():
     url = f'https://api.telegram.org/bot{BOT_TOKEN}/getUpdates?offset={last_update}'
     response = requests.get(url)
     data = json.loads(response.content)
-        
+    print(data)   
+    
     for result in data['result']:
         try:
             # Checking for new message
