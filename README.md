@@ -11,7 +11,7 @@ This is a python script for a Telegram chatbot that uses the OpenAI API to gener
 
 ## How to use
 1. Clone the repository and navigate to the directory.
-2. Fill in the API_KEY, MODEL, BOT_TOKEN and BOT_PERSONALITY in the script with your own API keys and desired settings.
+2. Fill in the API_KEY, MODEL, BOT_TOKEN, CHATBOT_HANDLE and BOT_PERSONALITY in the script with your own API keys and desired settings.
 3. Run the script with the command python chatbot.py
 4. Add the bot to a Telegram group, and mention the bot's username in a message to generate a response from the OpenAI API.
 
@@ -32,9 +32,9 @@ The script also uses a few global variables such as the API key for OpenAI, the 
 This script is provided as a starting point, and can be further customized and expanded upon as needed.
 How to use Ask_ChatGPTbot:
 
-1. Type "@ask_chatgptbot ___" to interact with the bot and ask a question
+1. Type "@ask_yourchatgptbotname ___" to interact with the bot and ask a question
 2. Type "/img ___" to get an AI generated image related to your question or statement
-3. Type "/setTone(serious) @ask_chatgptbot ___" in order to specify the tone for the bot's response
+3. Type "/setTone(serious) @ask_yourchatgptbotname ___" in order to specify the tone for the bot's response
 
 
 ## Version 1 Debug:
