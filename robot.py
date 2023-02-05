@@ -12,6 +12,8 @@ MODEL = 'text-davinci-003'
 BOT_TOKEN = 'xxxxxxbotapikeyxxxxx'
 # Defining the bot's personality using adjectives
 BOT_PERSONALITY = 'Answer in a funny tone, '
+# Specify your Chat Bot handle
+CHATBOT_HANDLE = '@ask_chatgptbot'
 
 # 2a. Function that gets the response from OpenAI's chatbot
 def openAI(prompt):
@@ -104,8 +106,8 @@ def Chatbot():
                         bot_response = openAImage(prompt)
                         print(telegram_bot_sendimage(bot_response, chat_id, msg_id))
                     # Checking that user mentionned chatbot's username in message
-                    if '@ask_chatgptbot' in result['message']['text']:
-                        prompt = result['message']['text'].replace("@ask_chatgptbot", "")
+                    if CHATBOT_HANDLE in result['message']['text']:
+                        prompt = result['message']['text'].replace(CHATBOT_HANDLE, "")
                         # Calling OpenAI API using the bot's personality
                         bot_response = openAI(f"{BOT_PERSONALITY}{prompt}")
                         # Sending back response to telegram group
