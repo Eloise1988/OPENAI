@@ -13,7 +13,9 @@ MODEL = 'text-davinci-003'
 # Telegram secret access bot token
 BOT_TOKEN = 'xxxxxxbotapikeyxxxxx'
 # Specify all group ID the bot can respond too
-ALLOWED_GROUP_ID=['-100xxxxxxxx', '-1001xxxxxxxx1']
+ALLOWED_GROUP_ID = ['-100xxxxxxxx', '-1001xxxxxxxx1']
+# Specify your Chat Bot handle
+CHATBOT_HANDLE = '@ask_chatgptbot'
 
 
 # 2a. Function that gets the response from OpenAI's chatbot
@@ -140,8 +142,8 @@ async def ChatGPTbot():
                         
                     boolean_active=False
                     # Checking that user mentionned chatbot's username in message
-                    if '@ask_chatgptbot' in result['message']['text']:
-                        prompt = result['message']['text'].replace("@ask_chatgptbot", "")
+                    if CHATBOT_HANDLE in result['message']['text']:
+                        prompt = result['message']['text'].replace(CHATBOT_HANDLE, "")
                         boolean_active=True
                         
                     # Verifying that the user is responding to the ChatGPT bot
