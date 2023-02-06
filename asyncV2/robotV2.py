@@ -16,6 +16,8 @@ BOT_TOKEN = 'xxxxxxbotapikeyxxxxx'
 ALLOWED_GROUP_ID = ['-100xxxxxxxx', '-1001xxxxxxxx1']
 # Specify your Chat Bot handle
 CHATBOT_HANDLE = '@ask_chatgptbot'
+# Retrieve last ID message : Create an empty text file named chatgpt.txt, write 1 on the first line of the text file and save it, write the full path of your file below 
+FILENAME = '/xxxxxx/xxxxxxx/xxxxx/chatgpt.txt'
 
 
 # 2a. Function that gets the response from OpenAI's chatbot
@@ -86,15 +88,13 @@ async def checkTone(user_message):
 
 
 async def ChatGPTbot():
-    # Retrieve last ID message from text file for ChatGPT update, define filepath and name
-    # Create an empty text file named chatgpt.txt, write 1 on the first line of the text file and save it, write the full path of your file below 
-    filename = '/xxxxxx/xxxxxxx/xxxxx/chatgpt.txt'
+   
     bot_personality = ''
     write_history= ''
     
     tone_list=['Friendly','Professional','Humorous','Sarcastic','Witty','Sassy','Charming','Cheeky','Quirky','Laid-back','Elegant','Playful','Soothing','Intense','Passionate']
           
-    with open(filename) as f:
+    with open(FILENAME) as f:
         last_update = f.read()
         
     
@@ -182,7 +182,7 @@ async def ChatGPTbot():
         print(e)
 
     # Updating file with last update ID
-    with open(filename, 'w') as f:
+    with open(FILENAME, 'w') as f:
         f.write(last_update)
         
     return "done"
