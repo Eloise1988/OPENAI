@@ -88,8 +88,9 @@ async def checkTone(user_message):
 
 
 async def ChatGPTbot():
-   
+    # Give your bot a personality using adjectives from the tone list
     bot_personality = ''
+    # Leave write_history BLANK
     write_history= ''
     
     tone_list=['Friendly','Professional','Humorous','Sarcastic','Witty','Sassy','Charming','Cheeky','Quirky','Laid-back','Elegant','Playful','Soothing','Intense','Passionate']
