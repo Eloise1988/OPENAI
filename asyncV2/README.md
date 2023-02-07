@@ -17,6 +17,7 @@ This is a python script for a Telegram chatbot that uses the OpenAI API to gener
 - `ALLOWED_GROUP_ID` : the list of allowed group_ids
 - `API_KEY` : OpenAI secret Key
 - `CHATBOT_HANDLE` : Bot name
+- `BOT_ID` : Bot name
 3. Run the script with the command python robotV2.py
 4. Add the bot to a Telegram group, and mention the bot's username in a message to generate a response from the OpenAI API.
 
