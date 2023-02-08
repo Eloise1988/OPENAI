@@ -12,14 +12,14 @@ This is a python script for a Telegram chatbot that uses the OpenAI API to gener
 
 ## How to use
 1. Clone the repository and navigate to the directory.
-2. A. Fill in the following in the robotV2 script with your own API keys and desired settings. 
+2. A. Fill in the following in the `robotV2.py` script with your own API keys and desired settings. 
 - `BOT_TOKEN`: The token you get from Telegram when you create your bot.
 - `ALLOWED_GROUP_ID` : the list of allowed group_ids
 - `API_KEY` : OpenAI secret Key
 - `CHATBOT_HANDLE` : Bot name
 - `BOT_ID` : Bot name
 
-B. Fill in the following in the memory.py script with your own settings and authentication. 
+B. Fill in the following in the `memory.py` script with your own settings and authentication. 
 - `api_id`: Telegram API ID and Hash (you can get it from my.telegram.org)
 - `api_hash` : Telegram API Hash (you can get it from my.telegram.org)
 - `session_hash` : Telegram Session Hash (you can get it from my.telegram.org)
