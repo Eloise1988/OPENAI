@@ -21,7 +21,8 @@ def openAI(prompt):
     response = requests.post(
         'https://api.openai.com/v1/completions',
         headers={'Authorization': f'Bearer {API_KEY}'},
-        json={'model': MODEL, 'prompt': prompt, 'temperature': 0.4, 'max_tokens': 300}
+        json={'model': MODEL, 'prompt': prompt, 'temperature': 0.4, 'max_tokens': 300},
+        timeout=10
     )
 
     result = response.json()
@@ -34,7 +35,8 @@ def openAImage(prompt):
     resp = requests.post(
         'https://api.openai.com/v1/images/generations',
         headers={'Authorization': f'Bearer {API_KEY}'},
-        json={'prompt': prompt,'n' : 1, 'size': '1024x1024'}
+        json={'prompt': prompt,'n' : 1, 'size': '1024x1024'},
+        timeout=10
     )
     response_text = json.loads(resp.text)
       
@@ -49,7 +51,8 @@ def telegram_bot_sendtext(bot_message,chat_id,msg_id):
     }
     response = requests.post(
         'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage',
-        json=data
+        json=data,
+        timeout=5
     )
     return response.json()
 
@@ -62,7 +65,7 @@ def telegram_bot_sendimage(image_url, group_id, msg_id):
     }
     url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendPhoto'
     
-    response = requests.post(url, data=data)
+    response = requests.post(url, data=data, timeout=5)
     return response.json()
   
 # 4. Function that retrieves the latest requests from users in a Telegram group, 
@@ -82,7 +85,7 @@ def Chatbot():
         
     # Check for new messages in Telegram group
     url = f'https://api.telegram.org/bot{BOT_TOKEN}/getUpdates?offset={last_update}'
-    response = requests.get(url)
+    response = requests.get(url, timeout=5)
     data = json.loads(response.content)
     print(data)   
     
