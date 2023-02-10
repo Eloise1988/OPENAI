@@ -26,7 +26,8 @@ async def openAI(prompt, max_tokens):
     response = requests.post(
         'https://api.openai.com/v1/completions',
         headers={'Authorization': f'Bearer {API_KEY}'},
-        json={'model': MODEL, 'prompt': prompt, 'temperature': 0.4, 'max_tokens': max_tokens}
+        json={'model': MODEL, 'prompt': prompt, 'temperature': 0.4, 'max_tokens': max_tokens},
+        timeout=10
     )
 
     result=response.json()
@@ -42,7 +43,8 @@ async def openAImage(prompt):
     resp = requests.post(
         'https://api.openai.com/v1/images/generations',
         headers={'Authorization': f'Bearer {API_KEY}'},
-        json={'prompt': prompt,'n' : 1, 'size': '256x256'}
+        json={'prompt': prompt,'n' : 1, 'size': '256x256'},
+        timeout=10
     )
 
     response_text = json.loads(resp.text)
@@ -61,7 +63,8 @@ async def telegram_bot_sendtext(bot_message,chat_id,msg_id):
     }
     response = requests.post(
         'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage',
-        json=data
+        json=data,
+        timeout=5
     )
 
     return response.json()
@@ -71,7 +74,7 @@ async def telegram_bot_sendimage(image_url,group_id, msg_id):
     data = {'chat_id': group_id, 'photo': image_url,'reply_to_message_id': msg_id}
     url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendPhoto'
     
-    response = requests.post(url, data=data)
+    response = requests.post(url, data=data, timeout=5)
     return response.json()
 
 # Checking for specific tone for message
@@ -102,7 +105,7 @@ async def ChatGPTbot():
     
     # Check for new messages in Telegram group
     url = f'https://api.telegram.org/bot{BOT_TOKEN}/getUpdates?offset={last_update}'
-    response = requests.get(url)
+    response = requests.get(url, timeout=5)
     data = json.loads(response.content)
     print(data)
     
