@@ -23,8 +23,7 @@ B. Fill in the following in the `memory.py` script with your own settings and au
 - `api_id`: Telegram API ID and Hash (you can get it from my.telegram.org)
 - `api_hash` : Telegram API Hash (you can get it from my.telegram.org)
 - `session_hash` : Telegram Session Hash 
-
-  # Telegram Session Hash 
+```
   async with TelegramClient('session_file', api_id, api_hash) as client:
       # Connect to the Telegram servers and log in
       await client.start()
@@ -35,6 +34,7 @@ B. Fill in the following in the `memory.py` script with your own settings and au
       session_hash = client.session.save()
 
       print(str(session_hash))
+```
 - `my_bot_id` : Bot ID number
 - `max_memory_message` : Stored number of max messages
 
