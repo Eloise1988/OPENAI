@@ -84,7 +84,7 @@ def Chatbot():
         last_update = f.read()
         
     # Check for new messages in Telegram group
-    url = f'https://api.telegram.org/bot{BOT_TOKEN}/getUpdates'
+    url = f'https://api.telegram.org/bot{BOT_TOKEN}/getUpdates?offset={last_update}'
     response = requests.get(url, timeout=5)
     data = json.loads(response.content)
     print(data)   
