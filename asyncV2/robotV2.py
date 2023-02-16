@@ -100,6 +100,7 @@ async def ChatGPTbot():
           
     with open(FILENAME) as f:
         last_update = f.read()
+    f.close()
         
     
     
