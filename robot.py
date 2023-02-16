@@ -82,6 +82,7 @@ def Chatbot():
 
     with open(filename) as f:
         last_update = f.read()
+    f.close()
         
     # Check for new messages in Telegram group
     url = f'https://api.telegram.org/bot{BOT_TOKEN}/getUpdates?offset={last_update}'
@@ -127,6 +128,7 @@ def Chatbot():
     # Updating file with last update ID
     with open(filename, 'w') as f:
         f.write(last_update)
+    f.close()
     
     return "done"
 
