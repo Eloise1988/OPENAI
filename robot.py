@@ -7,7 +7,7 @@ import threading
 # OpenAI secret Key
 API_KEY = 'xxxxxxxxxxxsecretAPIxxxxxxxxxx'
 # Models: text-davinci-003,text-curie-001,text-babbage-001,text-ada-001
-MODEL = 'text-davinci-003'
+MODEL = 'gpt-3.5-turbo'
 # Telegram secret access bot token
 BOT_TOKEN = 'xxxxxxbotapikeyxxxxx'
 # Defining the bot's personality using adjectives
@@ -19,14 +19,15 @@ CHATBOT_HANDLE = '@ask_chatgptbot'
 def openAI(prompt):
     # Make the request to the OpenAI API
     response = requests.post(
-        'https://api.openai.com/v1/completions',
+        'https://api.openai.com/v1/chat/completions',
         headers={'Authorization': f'Bearer {API_KEY}'},
-        json={'model': MODEL, 'prompt': prompt, 'temperature': 0.4, 'max_tokens': 300},
+        json={'model': MODEL, 'messages': [{"role": "user", "content": prompt}], 'temperature': 0.5, 'max_tokens': 300},
         timeout=10
     )
 
-    result = response.json()
-    final_result = ''.join(choice['text'] for choice in result['choices'])
+    result=response.json()
+    
+    final_result = ''.join(choice['message']['content'] for choice in result['choices'])
     return final_result
 
 # 2b. Function that gets an Image from OpenAI
