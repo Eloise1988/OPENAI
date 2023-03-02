@@ -9,7 +9,7 @@ import asyncio
 # OpenAI secret Key
 API_KEY = 'xxxxxxxxxxxsecretAPIxxxxxxxxxx'
 # Models: text-davinci-003,text-curie-001,text-babbage-001,text-ada-001
-MODEL = 'text-davinci-003'
+MODEL = 'gpt-3.5-turbo'
 # Telegram secret access bot token
 BOT_TOKEN = 'xxxxxxbotapikeyxxxxx'
 # Specify all group ID the bot can respond too
@@ -24,16 +24,16 @@ FILENAME = '/xxxxxx/xxxxxxx/xxxxx/chatgpt.txt'
 async def openAI(prompt, max_tokens):
     # Make the request to the OpenAI API
     response = requests.post(
-        'https://api.openai.com/v1/completions',
+        'https://api.openai.com/v1/chat/completions',
         headers={'Authorization': f'Bearer {API_KEY}'},
-        json={'model': MODEL, 'prompt': prompt, 'temperature': 0.4, 'max_tokens': max_tokens},
+        json={'model': MODEL, 'messages': [{"role": "user", "content": prompt}], 'temperature': 0.5, 'max_tokens': max_tokens},
         timeout=10
     )
 
     result=response.json()
     final_result=''
     for i in range(0,len(result['choices'])):
-        final_result+=result['choices'][i]['text']
+        final_result+=result['choices'][i]['message']['content']
 
     return final_result
 
