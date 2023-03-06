@@ -39,7 +39,7 @@ B. Fill in the following in the `memory.py` script with your own settings and au
 - `max_memory_message` : Stored number of max messages
 
 3. Run the script with the command `python robotV2.py`
-4. Add the bot to a Telegram group, and mention the bot's username in a message to generate a response from the OpenAI API.
+4. Add the bot to a Telegram group, make sure he has ADMIN priviledges, and mention the bot's username in a message to generate a response from the OpenAI API.
 
 ## Functionality
 
