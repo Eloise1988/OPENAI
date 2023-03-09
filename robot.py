@@ -27,7 +27,10 @@ def openAI(prompt):
 
     result=response.json()
     
-    final_result = ''.join(choice['message']['content'] for choice in result['choices'])
+    final_result=''
+    for i in range(0,len(result['choices'])):
+        final_result+=result['choices'][i]['message']['content']
+
     return final_result
 
 # 2b. Function that gets an Image from OpenAI
