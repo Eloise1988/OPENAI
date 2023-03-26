@@ -122,7 +122,7 @@ def Chatbot():
                         print(telegram_bot_sendtext(bot_response, chat_id, msg_id))
                     # Verifying that the user is responding to the ChatGPT bot
                     if 'reply_to_message' in result['message']:
-                        if result['message']['reply_to_message']['from']['is_bot']:
+                        if result['message']['reply_to_message']['from']['username'] == CHATBOT_HANDLE[1:]:
                             prompt = result['message']['text']
                             bot_response = openAI(f"{BOT_PERSONALITY}{prompt}")
                             print(telegram_bot_sendtext(bot_response, chat_id, msg_id))
