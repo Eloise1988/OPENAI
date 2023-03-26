@@ -153,7 +153,7 @@ async def ChatGPTbot():
                         
                     # Verifying that the user is responding to the ChatGPT bot
                     if 'reply_to_message' in result['message']:
-                        if result['message']['reply_to_message']['from']['is_bot']:
+                        if result['message']['reply_to_message']['from']['username'] == CHATBOT_HANDLE[1:]:
                             prompt = result['message']['text']
                             
                             #Getting historical messages from user 
