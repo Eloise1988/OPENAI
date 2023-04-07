@@ -114,7 +114,7 @@ def Chatbot():
                         bot_response = openAImage(prompt)
                         print(telegram_bot_sendimage(bot_response, chat_id, msg_id))
                     # Checking that user mentionned chatbot's username in message
-                    if CHATBOT_HANDLE in result['message']['text']:
+                    if CHATBOT_HANDLE in result['message']['text'] or "/ask" in result['message']['text']:
                         prompt = result['message']['text'].replace(CHATBOT_HANDLE, "")
                         # Calling OpenAI API using the bot's personality
                         bot_response = openAI(f"{BOT_PERSONALITY}{prompt}")
