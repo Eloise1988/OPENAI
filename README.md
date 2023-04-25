@@ -13,7 +13,7 @@ This is a python script for a Telegram chatbot that uses the OpenAI API to gener
 1. Clone the repository and navigate to the directory
 2. Fill in the API_KEY, MODEL, BOT_TOKEN, CHATBOT_HANDLE and BOT_PERSONALITY in the script with your own API keys and desired settings
 3. Run the script with the command python chatbot.py
-4. Add the bot to a Telegram group, make sure he has ADMIN priviledges, and mention the bot's username in a message to generate a response from the OpenAI API.
+4. Add the bot to a Telegram group, make sure he has ADMIN priviledges, and mention the bot's username in a message to generate a response from the OpenAI API
 
 ## Functionality
 ### Imports and setup
